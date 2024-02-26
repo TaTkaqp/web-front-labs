@@ -1,0 +1,23 @@
+body {
+    background-color: lightblue;
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+}
+main {
+   background-color: lightblue;
+   padding: 0px;
+   margin: 0px;
+}
+footer{
+    background-color: rgb(128, 195, 218);
+    color: rgb(147, 1, 1);
+    padding: 5px; 
+    font-size: 7pt; 
+    font-style: italic;
+}
+
+header{
+    background-color: rgb(128, 195, 218);
+    color: rgb(147, 1, 1);
+}
