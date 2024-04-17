@@ -56,6 +56,13 @@
             let me = 'Добро пожаловать на мою страницу! \n К сожалению всех денег в мире не заработаешь, а вот быллы да!';
             alert (me);
         }
+        function changeOutput (buttonNum,  backColor , textColor, borderWidth) {
+            let output = document.getElementById ('output');
+            output.innerHTML = 'Нажата кнопка'+buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
+            output.style.borderWidth = borderWidth;
+        }
     </script>
     <style>
         .message {
@@ -72,6 +79,11 @@
             text-align: center;
             vertical-align: middle;
 
+        }
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
         }
     </style>
 </head>
@@ -90,6 +102,15 @@
         <div class="message" onclick="showWP()">Найти произведение</div>
         <div class="message" onclick="showWD()">Найти деление</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput (1, 'green', 'yellow', 'red')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput (2, 'black', 'red', 'yellow')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput (2, 'pink', 'blue', 'black')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput (2, 'blue', 'orange', 'green')">
+        </div>
+
+        <div id="output"> </div>
     </main>
     <footer ondblclick="showMe()" style="cursor: pointer">
         &copy; Наталья Бугаева, ФБИ-21, 2 курс, 2024
