@@ -10,14 +10,21 @@
     <link rel="shortcut icon" href="../favicon-16x16.png">
     <style>
         
-        div {
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .bloc
+        {
             width: 200px;
             height: 70px;
             line-height: 70px;
             background-color: white;
             border: 1px dotted darkgreen;
-            margin: 15px;
-            z-index: 1;
+            margin: 30px;
+            display: none;
+            transition: all 0.3s;
         }
 
         .one {
@@ -93,15 +100,15 @@
 </header>
 
 <body>
-    <p>
-        <img src="mem.jpg" height="500">
-    </p>
-
+   
     <main>
-            <div class="one"></div>
-            <div class="two"></div>
-            <div class="three"></div>
-            <div class="four"> И так сойдет!</style></div>
+        <div class="container" >
+            <img src="mem.jpg" alt="И так сойдет!" height="500">
+            <div class="blok one"></div>
+            <div class="blok two"></div>
+            <div class="blok three"></div>
+            <div class="blok four"> И так сойдет!</div>
+        </div>
              
     </main>
     <footer>
