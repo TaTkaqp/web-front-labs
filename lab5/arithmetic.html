@@ -15,6 +15,14 @@
             let result = a+b;   
             alert ('Сумма ' +a+ ' и ' +b+ ' равна ' + result);
         }
+        function showAuthor () {
+            let author = 'Автор страницы: \nБугаёва Наталья Владимировна';
+            alert (author);
+        }
+        function showMe () {
+            let me = 'Добро пожаловать на мою страницу! \n К сожалению всех денег в мире не заработаешь, а вот быллы да!';
+            alert (me);
+        }
     </script>
     <style>
         .message {
@@ -36,15 +44,15 @@
 </head>
 
 <body>
-    <header> 
+    <header onclick="showAuthor()" style="cursor: pointer"> 
     НГТУ, ФБ, Лабораторная работа 5
     </header>
 
     <main>
         <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
-        <div class="message">Узнать, кто автор страницы</div>
+        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
-    <footer>
+    <footer ondblclick="showMe()" style="cursor: pointer">
         &copy; Наталья Бугаева, ФБИ-21, 2 курс, 2024
     </footer>
 </body>
