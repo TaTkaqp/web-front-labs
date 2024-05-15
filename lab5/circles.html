@@ -55,14 +55,6 @@
         .circles8 {background-color: aqua; width: 65px; height: 65px;}
         .circles9 {background-color: lightgreen; width: 40px; height: 40px;}
         .circles10 {background-color: salmon; width: 20px; height: 20px;}    
-
-        
-.block.hidden {
-    width: 0;
-    height: 0;
-    opacity: 0;
-}
-
     </style>
 </head>
 <body>
@@ -71,16 +63,16 @@
     </header>
     <main>
         <input type="button" value="Вернуть круги" onclick="circleCome()">
-        <div class="circles circles1" style="top: 250px; left: 650px;">1</div>
-        <div class="circles circles2" style="top: 70px; left: 820px;">2</div>
-        <div class="circles circles3" style="top: 260px; left: 1200px;">3</div>
-        <div class="circles circles4" style="top: 450px; left: 150px;">4</div>
-        <div class="circles circles5" style="top: 450px; left: 500px;">5</div>
-        <div class="circles circles6" style="top: 250px; left: 50px;">6</div>
-        <div class="circles circles7" style="top: 400px; left: 1000px;">7</div>
-        <div class="circles circles8" style="top: 50px; left: 1100px;">8</div>
-        <div class="circles circles9" style="top: 100px; left: 400px;">9</div>
-        <div class="circles circles10" style="top: 100px; left: 200px;">10</div>
+        <div class="circles circles1" style="top: 250px; left: 650px;" onclick="circleLeave.call(this);">1</div>
+        <div class="circles circles2" style="top: 70px; left: 820px;" onclick="circleLeave.call(this);">2</div>
+        <div class="circles circles3" style="top: 260px; left: 1200px;" onclick="circleLeave.call(this);">3</div>
+        <div class="circles circles4" style="top: 450px; left: 150px;" onclick="circleLeave.call(this);">4</div>
+        <div class="circles circles5" style="top: 450px; left: 500px;" onclick="circleLeave.call(this);">5</div>
+        <div class="circles circles6" style="top: 250px; left: 50px;" onclick="circleLeave.call(this);">6</div>
+        <div class="circles circles7" style="top: 400px; left: 1000px;" onclick="circleLeave.call(this);">7</div>
+        <div class="circles circles8" style="top: 50px; left: 1100px;" onclick="circleLeave.call(this);">8</div>
+        <div class="circles circles9" style="top: 100px; left: 400px;" onclick="circleLeave.call(this);">9</div>
+        <div class="circles circles10" style="top: 100px; left: 200px;" onclick="circleLeave.call(this);">10</div>
     </main>
     
     <footer>
