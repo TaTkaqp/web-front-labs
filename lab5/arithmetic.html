@@ -45,7 +45,12 @@
             
             let a=parseInt(inputA.value);
             let b=parseInt(inputB.value);
-            let result = a/b;   
+            if (b=='0') {
+                alert ('Ошибка! На ноль делить нельзя')
+            }
+            else {
+                let result = a/b;
+            }  
             alert ('Деление ' +a+ ' и ' +b+ ' равна ' + result);
         }   
         function showAuthor () {
@@ -68,7 +73,7 @@
         .message {
             cursor: pointer;
             display: inline-block;
-            margin: 50px;
+            margin: 20px;
             border: 2px solid;
             border-radius: 20px;
             padding: 5px;
@@ -95,13 +100,13 @@
 
     <main>
         <label> Первое число: <input type="number" value="" id="numberA"></label><br>
-        <label> Второе число: <input type="number" value="" id="numberB"></label><br>
+        <label style="margin: 2px; "> Второе число: <input type="number" value="" id="numberB"></label><br>
 
         <div class="message" onclick="showSum()">Найти сумму</div>
         <div class="message" onclick="showDiff()">Нати разность</div>
         <div class="message" onclick="showWP()">Найти произведение</div>
         <div class="message" onclick="showWD()">Найти деление</div>
-        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        <div class="message" onclick="showAuthor()" style="float: right;">Узнать, кто автор страницы</div>
 
         <div>
             <input type="button" value="Кнопка 1" onclick="changeOutput (1, 'green', 'yellow', 'red')">
