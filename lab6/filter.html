@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>«Фильтр товаров</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png"> 
+    <style>
+        img {
+            height: 500px;
+        }
+        .wear {
+            text-align: center;
+            margin: 20px auto;
+        }
+    </style>
+    <script>
+        function filter() {
+            let color = document.getElementById('wear-color').value; // Получаем выбранный цвет
+            let type = document.getElementById('wear-type').value; // Получаем выбранный тип одежды
+            let wear= document.getElementById('wear'); // Получаем ссылку на изображение одежды
+            wear.style.border = "2px dashed black"; // Устанавливаем пунктирную рамку для изображения
+
+            // Логика выбора изображения в зависимости от цвета и типа одежды
+            if(color == 'Белый' && type == 'Футболка') {
+                wear.src = "wf.webp";
+            }
+            else if(color == 'Черный' && type == 'Футболка') {
+                wear.src = "bf.webp";
+            }
+            else if(color == 'Красный' && type == 'Футболка') {
+                wear.src = "rf.webp";
+            }
+            else if(color == 'Белый' && type == 'Рубашка') {
+                wear.src = "wr.webp";
+            }
+            else if(color == 'Черный' && type == 'Рубашка') {
+                wear.src = "br.webp";
+            }
+            else if(color == 'Красный' && type == 'Рубашка') {
+                wear.src = "rr.webp";
+            }
+            else if(color == 'Белый' && type == 'Платье') {
+                wear.src = "wp.webp";
+            }
+            else if(color == 'Черный' && type == 'Платье') {
+                wear.src = "bp.webp";
+            }
+            else {
+                wear.src = "rp.webp"; // Условие можно не указывать, так как мы уже перебрали все цвета
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div class="wear">
+            Цвет одежды:
+            <select id="wear-color">
+                <option>Белый</option> <!-- Данный тег определяет отдельные пункты списка -->
+                <option>Черный</option>
+                <option>Красный</option>
+            </select><br>
+
+            Тип одежды:
+            <select id="wear-type">
+                <option>Футболка</option>
+                <option>Рубашка</option>
+                <option>Платье</option>
+            </select><br>
+
+            <button onclick="filter()">ОК</button><br> <!-- Кнопка, к которой привязана функция  -->
+
+            <img id="wear">
+        </div>
+    </main>
+       
+    <footer>
+        &copy; Бугаева Наталья, ФБИ-21, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
