@@ -70,25 +70,34 @@
         }
     </script>
     <style>
-        .message {
+        header {
             cursor: pointer;
-            display: inline-block;
-            margin: 20px;
-            border: 2px solid;
-            border-radius: 20px;
+        }
+        .number {
+            text-align: center;
+        }
+        .message {
+            margin: 10px;
             padding: 5px;
             width: 300px;
             height: 30px;
-            overflow: auto;
-            background-color: rgb(228, 215, 128);
-            text-align: center;
-            vertical-align: middle;
-
+            background: rgb(99, 143, 95);
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            font-size: 22px;
+            display: inline-block;
+            cursor: pointer;
         }
         #output {
-            border: 1px solid;
+            border: 1px solid rgb(39, 39, 39);
+            border-radius: 5px;
             width: 300px;
             height: 40px;
+            font-size: 18px;
+            margin: auto;
+        }
+        footer {
+            cursor:pointer;
         }
     </style>
 </head>
@@ -99,23 +108,22 @@
     </header>
 
     <main>
-        <label> Первое число: <input type="number" value="" id="numberA"></label><br>
-        <label style="margin: 2px; "> Второе число: <input type="number" value="" id="numberB"></label><br>
-
-        <div class="message" onclick="showSum()">Найти сумму</div>
-        <div class="message" onclick="showDiff()">Нати разность</div>
-        <div class="message" onclick="showWP()">Найти произведение</div>
-        <div class="message" onclick="showWD()">Найти деление</div>
-        <div class="message" onclick="showAuthor()" style="float: right;">Узнать, кто автор страницы</div>
-
-        <div>
-            <input type="button" value="Кнопка 1" onclick="changeOutput (1, 'green', 'yellow', 'red')">
-            <input type="button" value="Кнопка 2" onclick="changeOutput (2, 'black', 'red', 'yellow')">
-            <input type="button" value="Кнопка 3" onclick="changeOutput (2, 'pink', 'blue', 'black')">
-            <input type="button" value="Кнопка 4" onclick="changeOutput (2, 'blue', 'orange', 'green')">
+        <div class="number">
+            <!-- Ввод чисел и кнопок для арифметических операций -->
+            <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
+            <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
+            <div class="message" onclick="Sum()">Найти сумму чисел</div>
+            <div class="message" onclick="Author()">Узнать, кто автор страницы</div>
+            <div class="message" onclick="Dif()">Найти разность чисел</div>
+            <div class="message" onclick="Prod()">Найти произведение чисел</div>
+            <div class="message" onclick="Div()">Найти деление чисел</div>
+            <!-- Кнопки для изменения внешнего вида элемента -->
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'black', 'white', '3px solid white')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'gray', 'pink', '3px dotted pink')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'violet', 'blue', '3px dashed blue')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'orange', 'red', '3px double red')">
+            <div id="output"></div>
         </div>
-
-        <div id="output"> </div>
     </main>
     <footer ondblclick="showMe()" style="cursor: pointer">
         &copy; Наталья Бугаева, ФБИ-21, 2 курс, 2024

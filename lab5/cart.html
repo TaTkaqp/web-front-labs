@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <script>
+        // Функция для расчета общей стоимости товаров в корзине
+        function Sum() {
+            // Получение значений из полей ввода
+            let inputA = document.getElementById("productA");
+            let inputB = document.getElementById("productB");
+            let inputC = document.getElementById("productC");
+            let inputD = document.getElementById("productD");
+            let inputE = document.getElementById("productE");
+            let a = parseInt(inputA.value) || 0; // возвращение 0, если значение отсутствует
+            let b = parseInt(inputB.value) || 0;
+            let c = parseInt(inputC.value) || 0;
+            let d = parseInt(inputD.value) || 0;
+            let e = parseInt(inputE.value) || 0;
+            // Расчет стоимости
+            let result = a * 139 + b * 45 + c * 40 + d * 300 + e * 59;
+            let price = document.getElementById("price");
+            // Вывод ошибки, если введены отрицательные числа
+            if (a < 0 || b < 0 || c < 0 || d < 0 || e < 0) {
+                alert("Вводите только положительные значения!");
+                price.innerHTML = "";
+            }
+            // Очистка цены, если все поля пустые
+            if (inputA.value == "" && inputB.value == "" && inputC.value == "" && inputD.value == "" && inputE.value == "") {
+                price.innerHTML = "";
+            }
+            // Вывод результата
+            price.innerHTML = "Общая цена: " + result + "₽";
+        }
+        // Функция для очистки всех полей ввода
+        function Delete() {
+            productA.value = "";
+            productB.value = "";
+            productC.value = "";
+            productD.value = "";
+            productE.value = "";
+            price.innerHTML = "";
+        }
+    </script>
+    <style>
+        /* Стили для оформления элементов корзины */
+        .basket {
+            margin: auto;
+            background-color: rgba(140, 0, 255, 0.116);
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            padding: 5px;
+            line-height: 30px;
+        }
+        #price {
+            padding: 7px;
+            font-weight: bold;
+        }
+        input {
+            font-size: 16px; /* увеличенный размер шрифта для удобства ввода */
+        }
+    </style>
+
+</head>
+<body>
+    <header> 
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    <main>
+        <div class="basket">
+             <h1>Корзина товаров</h1>
+             <!-- Поля для ввода количества каждого товара -->
+             <label>
+                 Линейка (139₽/шт)<br><input type="number" placeholder="Введите количество" id="productA">
+             </label><br>
+ 
+             <label>
+                 Ручка (45₽/шт)<br><input type="number" placeholder="Сколько угодно штук" id="productB">
+             </label><br>
+ 
+             <label>
+                 Карандаш (40₽/шт)<br><input type="number" placeholder="Любое количество" id="productC">
+             </label><br>
+              
+             <label>
+                 Пенал (300₽/мл)<br><input type="number" placeholder="Вводите в мл" id="productD">
+             </label><br>
+             
+             <label>
+                 Фломастер (59₽/шт)<br><input type="number" placeholder="Сколько хотите" id="productE">
+             </label><br>
+ 
+             <!-- Кнопки для расчета стоимости и очистки полей -->
+             <input type="button" value="Рассчитать" onclick="Sum()">
+             <input type="button" value="Очистить" onclick="Delete()">
+ 
+             <!-- Элемент для вывода рассчитанной стоимости -->
+             <div id="price"></div>
+        </div>
+     </main>
+
+    <footer>
+        &copy; Наталья Бугаева, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
