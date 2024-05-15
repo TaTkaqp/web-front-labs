@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>«Корзина товаров»</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png"> 
+    <style>
+        /* Стили для таблицы и кнопок */
+        .table {
+            margin: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+        table {
+            margin: auto;
+            width: 600px;
+            background-color: rgb(250, 197, 255);
+        }
+        button {
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        // Функция для расчета общей стоимости корзины
+        function cart() {
+            // Получаем все входные значения и баланс
+            let inputA = document.getElementById("flowerA");
+            let inputB = document.getElementById("flowerB");
+            let inputC = document.getElementById("flowerC");
+            let inputD = document.getElementById("flowerD");
+            let inputE = document.getElementById("flowerE");
+            let inputF = document.getElementById("flowerF");
+            let inputG = document.getElementById("flowerG");
+            let money = document.getElementById("money");
+
+            // Парсим входные значения и устанавливаем значение по умолчанию 0
+            let a = parseInt(inputA.value) || 0;
+            let b = parseInt(inputB.value) || 0;
+            let c = parseInt(inputC.value) || 0;
+            let d = parseInt(inputD.value) || 0;
+            let e = parseInt(inputE.value) || 0;
+            let f = parseInt(inputF.value) || 0;
+            let g = parseInt(inputG.value) || 0;
+            let m = parseInt(money.value);
+
+            // Расчет общей стоимости
+            let result = a * 50 + b * 70 + c * 90 + d * 80 + e * 60 + f * 50 + g * 65;
+
+            // Получаем элемент для отображения цены
+            let price = document.getElementById("price");
+
+            // Проверка на отрицательные значения
+            if (a < 0 || b < 0 || c < 0 || d < 0 || e < 0 || f < 0 || g < 0) {
+                price.innerHTML = "Значения не могут быть отрицательными";
+            }
+            // Проверка на отсутствие значений во всех графах с количеством товара
+            else if (inputA.value == "" && inputB.value == "" && inputC.value == "" && inputD.value == "" && inputE.value == "" && inputF.value == "" && inputG.value == "") {
+                price.innerHTML = "Ни один товар не выбран";
+            }
+            // Проверка на недостаток средств
+            else if (result > m) {
+                price.innerHTML = "У Вас недостаточно денег!";
+                price.style.color = "red";
+            }
+            // Если все проверки пройдены, оформляем заказ
+            else {
+                document.getElementById("money").value = m - result;
+                price.innerHTML = "Заказ успешно оформлен <br> Итого: " + result;
+                price.style.color = "black";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div class="table">
+            <!-- Поле для ввода текущего баланса, с устанновленным значением 1000 -->
+            <label>Мой баланс:<input type="number" min="0" max="10000" value="1000" id="money"></label>
+
+            <!-- Таблица товаров -->
+            <table border="1">
+                <tr>
+                    <td></td>
+                    <td>Название</td>
+                    <td>Цена</td>
+                    <td>Количество</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Орхидея</td>
+                    <td>50</td>
+                    <td><input type="number" id="flowerA"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Тюльпан</td>
+                    <td>70</td>
+                    <td><input type="number" id="flowerB"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Роза</td>
+                    <td>90</td>
+                    <td><input type="number" id="flowerC"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Фиалка</td>
+                    <td>80</td>
+                    <td><input type="number" id="flowerD"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Пион</td>
+                    <td>60</td>
+                    <td><input type="number" id="flowerE"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Гипсофилы</td>
+                    <td>50</td>
+                    <td><input type="number" id="flowerF"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Лилия</td>
+                    <td>65</td>
+                    <td><input type="number" id="flowerG"></td>
+                </tr>
+            </table>
+
+            <!-- Кнопка для расчета общей суммы заказа -->
+            <button onclick="cart()">ОК</button><br>
+
+            <!-- Элемент для отображения итоговой цены -->
+            <div id="price"></div>
+        </div>
+    </main>
+       
+    <footer>
+        &copy; Наталья Бугаева, ФБИ-21, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
