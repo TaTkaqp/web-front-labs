@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перебор цветов</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png"> 
+    <style>
+        .color {
+            color: white; /* Цвет текста */
+            background-color: red; /* Изначальный цвет фона */
+            border: 2px solid black; /* Черная рамка вокруг блока */
+            border-radius: 5px; /* Слегка закругленные углы */
+            text-align: center; /* Центрирование текста по горизонтали */
+            margin: auto; /* Центрирование блока */
+            width: 400px; /* Фиксированная ширина блока */
+            padding: 10px; /* Внутренние отступы */
+            line-height: 30px; /* Высота строки текста для выравнивания по вертикали */
+            font-size: 18px; /* Размер текста */
+            cursor: pointer; /* Вид курсора при наведении */
+            transition: 1s; /* Анимация плавного изменения цвета */
+        }
+    </style>
+
+    <!-- Скрипт для изменения цвета по двойному щелчку -->
+    <script>
+        function changeColor(div) {
+            // Проверка текущего цвета фона и изменение его на следующий
+            if (div.style.backgroundColor == 'red') {
+                div.style.backgroundColor = 'orange'; /* Переход на оранжевый цвет */
+                div.style.color = 'black'; /* Изменение цвета текста */
+                document.getElementById('color-name').innerHTML = 'оранжевый';
+            } else if (div.style.backgroundColor == 'orange') {
+                div.style.backgroundColor = 'yellow'; /* Переход на желтый цвет */
+                div.style.color = 'black';
+                document.getElementById('color-name').innerHTML = 'желтый';
+            } else if (div.style.backgroundColor == 'yellow') {
+                div.style.backgroundColor = 'green'; /* Переход на зеленый цвет */
+                div.style.color = 'white';
+                document.getElementById('color-name').innerHTML = 'зеленый';
+            } else if (div.style.backgroundColor == 'green') {
+                div.style.backgroundColor = 'blue'; /* Переход на синий цвет */
+                div.style.color = 'white';
+                document.getElementById('color-name').innerHTML = 'синий';
+            } else if (div.style.backgroundColor == 'blue') {
+                div.style.backgroundColor = 'violet'; /* Переход на фиолетовый цвет */
+                div.style.color = 'white';
+                document.getElementById('color-name').innerHTML = 'фиолетовый';
+            } else {
+                div.style.backgroundColor = 'red'; /* Возвращение к красному цвету */
+                document.getElementById('color-name').innerHTML = 'красный';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    <!-- Основной контент с цветовым переключателем -->
+    <main>
+        <!-- служебное слово this передает объект, по которому щёлкнули, прямо в обработчик -->
+        <div class="color" ondblclick="changeColor(this)"> 
+            Цвет: <span id="color-name">красный</span><br>
+            Сделайте двойной щелчок, чтобы сменить
+        </div>
+    </main>
+    <footer>
+        &copy; Наталья Бугаева, ФБИ-21, 2 курс, 2024
+    </footer>   
+</body>
+</html>
