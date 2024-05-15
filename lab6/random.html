@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай число</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <style>
+        .game {
+            border: 3px solid rgb(1, 51, 216); /* Определение стиля рамки */
+            background-color: rgba(255, 255, 255, 0.637); /* Определение цвета фона */
+            color: rgb(49, 70, 255); /* Определение цвета текста */
+            width: 400px; /* Ширина блока */
+            padding: 10px; /* Отступы внутри блока */
+            margin: 20px auto; /* Отступы для центрирования блока */
+            text-align: center; /* Выравнивание текста по центру */
+        }
+        .text {
+            padding: 7px; /* Отступы внутри элемента с классом "text" */
+        }
+        .list {
+            text-align: left; /* Выравнивание текста списка по левому краю */
+            line-height: 22px; /* Межстрочный интервал списка */
+        }
+    </style>
+    <script>
+        let number; // Переменная для хранения загаданного числа
+        let count = 0; // Счетчик попыток
+        function startGame() {
+            number = Math.floor(Math.random()*100)+1; // Генерация случайного числа от 1 до 100
+            let screens = document.getElementsByClassName('game'); // Получение всех элементов с классом "game"
+            screens[0].style.display = 'none'; // Скрытие первого экрана
+            screens[1].style.display = 'block'; // Отображение второго экрана
+            screens[3].style.display = 'none'; // Скрытие четвертого экрана
+        }
+        function guess() {
+            let input = document.getElementById('user-number'); // Получение элемента ввода пользовательского числа
+            let userNumber = parseInt(input.value); // Получение числа, введенного пользователем
+            let message = document.getElementById('result'); // Получение элемента для вывода результата
+            if(isNaN(userNumber)) { // Проверка на ввод числа
+                message.innerHTML = 'Число не введено'; // Вывод сообщения об ошибке
+            } 
+            else if(userNumber > 100) { // Проверка на ввод числа больше 100
+                message.innerHTML = 'Число больше допустимого'; // Вывод сообщения об ошибке
+            }
+            else if(userNumber < 1) { // Проверка на ввод числа меньше 1
+                message.innerHTML = 'Число меньше допустимого'; // Вывод сообщения об ошибке
+            }
+            else {
+                count++; // Увеличение счетчика попыток
+                if(userNumber > number) {
+                    message.innerHTML = 'Вы ввели слишком большое число'; // Вывод сообщения об ошибке
+                }
+                else if(userNumber < number) {
+                    message.innerHTML = 'Вы ввели слишком маленькое число'; // Вывод сообщения об ошибке
+                }
+                else {
+                    let screens = document.getElementsByClassName('game'); // Получение всех элементов с классом "game"
+                    screens[1].style.display = 'none'; // Скрытие второго экрана
+                    screens[2].style.display = 'block'; // Отображение третьего экрана
+                    screens[3].style.display = 'none'; // Скрытие четвертого экрана
+                    document.getElementById('number').innerHTML = number; // Вывод загаданного числа
+                    document.getElementById('try-count').innerHTML = count; // Вывод количества попыток
+                }
+            }
+        }   
+        function again(params) {
+            let screens = document.getElementsByClassName('game'); // Получение всех элементов с классом "game"
+            screens[1].style.display = 'block'; // Отображение второго экрана
+            screens[2].style.display = 'none'; // Скрытие третьего экрана
+            number = Math.floor(Math.random()*100)+1; // Генерация нового случайного числа
+            count = 0; // Сброс счетчика попыток
+            document.getElementById('result').innerHTML = ''; // Очистка поля с результатом
+            document.getElementById('user-number').value = ''; // Очистка поля ввода числа
+        }
+        function Rules() {
+            let screen = document.getElementsByClassName('rules'); // Получение всех элементов с классом "rules"
+            if(screen[2].style.display == 'none') { // Проверка видимости третьего экрана
+                screen[0].style.display = 'none'; // Скрытие первого экрана с кнопкой "Показать правила игры"
+                screen[1].style.display = 'block'; // Отображение второго экрана с кнопкой "Скрыть правила игры"
+                screen[2].style.display = 'block'; // Отображение третьего экрана с правилами игры
+            } else {
+                screen[0].style.display = 'block'; // Отображение первого экрана с кнопкой "Показать правила игры"
+                screen[1].style.display = 'none'; // Скрытие второго экрана с кнопкой "Скрыть правила игры"
+                screen[2].style.display = 'none'; // Скрытие третьего экрана с правилами игры
+            }
+        }
+    </script>
+</head>
+<body>
+    <header> 
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    <main>
+        <div class="game">
+            <button onclick="startGame()">
+                Сыграть в игру <!-- Кнопка для начала игры -->
+            </button>
+        </div>
+
+        <div class="game" style="display: none;">
+            <h1>Угадай число!</h1> <!-- Заголовок второго экрана -->
+            <div>
+                Задумано число от 1 до 100. Угадайте, какое?<br> <!-- Текст с инструкцией игры -->
+            </div>
+            <div>
+                <input type="number" value="" min="1" max="100" id="user-number"><br> <!-- Поле ввода числа -->
+            </div>
+            <button onclick="guess()">Угадать</button> <!-- Кнопка для угадывания числа -->
+            <div id="result"></div> <!-- Поле для вывода результата -->
+        </div>
+
+        <div class="game" style="display: none;">
+            <h1>Поздравляем, вы выиграли!</h1> <!-- Заголовок третьего экрана -->
+            <div>
+                Задуманное число: <span id="number"></span> <!-- Вывод загаданного числа -->
+            </div>
+            <div>
+                Количество попыток: <span id="try-count"></span> <!-- Вывод количества попыток -->
+            </div>
+            <div>
+                <button onclick="again()">Сыграть ещё раз</button> <!-- Кнопка для начала новой игры -->
+            </div>
+        </div>
+
+        <div class="game">
+            <div class="rules">
+                <button  onclick="Rules()">Показать правила игры</button> <!-- Кнопка для отображения правил игры -->
+            </div>
+            <div class="rules" style="display: none;">
+                <button  onclick="Rules()">Скрыть правила игры</button> <!-- Кнопка для скрытия правил игры -->
+            </div>
+            <div class="rules" style="display: none;">
+                <ol type="A" class="list"> <!-- Нумерованный список с правилами игры -->
+                    <li>Нажмите на кнопку "сыграть в игру"</li>
+                    <li>Учитывайте заданный диапазон чисел</li>
+                    <li>Введите любое число</li>
+                    <li>
+                        Фразы "вы ввели слишком большое число" и "вы ввели слишком маленькое число" будут помогать вам
+                    </li>
+                    <li>Пробуйте до тех пор, пока не отгадаете загаданное число</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; Наталья Бугаева, ФБИ-21, 2 курс, 2024
+    </footer>    
+</body>
+</html>
