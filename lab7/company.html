@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Котировки акций компании ТГК-1</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png"> 
+    <script>
+        function showExchange() {
+        const prices = [
+                0.009688, 0.009688, 0.009680, 0.009544, 0.009426, 0.009018, 
+                0.009260, 0.009106, 0.009096, 0.008808
+            ];
+        const dates = [
+            '14.05.2024', '15.05.2024', '16.05.2024', '17.05.2024', '20.05.2024',
+            '21.05.2024', '22.05.2024', '23.05.2024', '24.05.2024', '27.05.2024'
+        ];
+
+        let table = document.getElementById('st-table');
+        table.innerHTML = '';
+        let headerRow = table.insertRow(-1);
+        headerRow.insertCell(0).innerText = 'Дата';
+        headerRow.insertCell(1).innerText = 'Цена акций';
+        headerRow.insertCell(2).innerText = 'Разница';
+
+        let sum = 0, max = prices[0], min = prices[0];
+        for(let i = 0; i < prices.length; i++) {
+            let tr = table.insertRow(-1);
+            tr.insertCell(0).innerText = dates[i];
+            tr.insertCell(1).innerText = prices[i];
+            let diffCell = tr.insertCell(2);
+            if (i > 0) {
+                let diff = prices[i] - prices[i - 1];
+                diffCell.innerText = diff.toFixed(6);
+            } else {
+                diffCell.innerText = '—';
+            }
+            sum += prices[i];
+            if (prices[i] > max) max = prices[i];
+            if (prices[i] < min) min = prices[i];
+        }
+
+        let average = sum / prices.length;
+        average = average.toFixed(6);
+
+        let detail = document.getElementById('detail');
+        detail.innerText = `Средняя стоимость: ${average} 
+        Максимальная стоимость: ${max} 
+        Минимальная стоимость: ${min}`;
+
+        document.querySelector('button').remove(); 
+    }
+    </script>
+    <style>
+        button {
+            border-radius: 7px;
+            padding: 7px;
+            font-size: 14px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <header style= "padding:15px;">
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showExchange()">Курс акций компании "ТГК-1"</button>
+        <table id="st-table" border="1"></table>
+        <div id="detail"></div>
+    </main>
+
+
+    <footer>
+        &copy; Бугаева Наталья, ФБИ-21, 2 курс, 2024
+    </footer>
+
+</body>
+</html>
