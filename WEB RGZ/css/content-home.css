@@ -1,0 +1,124 @@
+/* Контент */
+
+.content {
+    font-size: 24px;
+    padding-left: 50px;
+    padding-right: 30px;
+    display: flex;
+    padding-top: 80px;
+}
+
+.content-company li {
+    padding-left: 30px;
+}
+
+/* Блок о компании */
+
+.content-company {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.company {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgba(183, 228, 228, 0.584);
+    margin-bottom: 30px;
+    padding-right: 50px;
+    padding-left: 30px;
+}
+
+.img-company {
+    border-radius: 10px;
+    width: 400px;
+    height: 270px;
+    margin-left: 15px;
+}
+
+/* Блок история */
+
+.history {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgba(183, 228, 228, 0.584);
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+.img-history {
+    border-radius: 10px;
+    width: 400px;
+    height: 270px;
+    margin-right: 17px;
+}
+
+/* Блок собственники */
+
+.owners {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgba(183, 228, 228, 0.584);
+    padding-left: 30px;
+    padding-right: 50px;
+    margin-bottom: 30px;
+}
+
+.img-owners {
+    border-radius: 10px;
+    width: 400px;
+    height: 270px;
+    margin-left: 17px;
+}
+
+/* Блок деятельность */
+
+.activity {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgba(183, 228, 228, 0.584);
+    padding-left: 30px;
+    margin-bottom: 30px;
+    padding-right: 10px;
+}
+
+.img-activity {
+    border-radius: 10px;
+    width: 400px;
+    height: 270px;
+    margin-right: 17px;
+}
+
+.btn-more {
+    width: 200px;
+}
+
+/* Кнопка Подробнее */
+
+#more{
+    display: none;
+}
+/* Оптимизация */
+@media (max-width: 870px) {
+    .company, .history, .owners, .activity {flex-wrap: wrap;align-items: center;}
+}
+
+@media (max-width: 480px) {
+    .img-history, .img-company, .img-owners, .img-activity{width: 200px; height: 150px;}
+}

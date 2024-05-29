@@ -1,0 +1,79 @@
+.contact {
+    margin-top: 80px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.tip-contact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 40px;
+    justify-content: center;
+}
+
+.phone {
+    background-color: rgba(183, 228, 228, 0.584);
+    width: 45%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.phone:hover{
+    background-color: rgba(159, 190, 190, 0.584);
+}
+
+.email:hover{
+    background-color: rgba(159, 190, 190, 0.584);
+}
+
+.sms-bank:hover{
+    background-color: rgba(159, 190, 190, 0.584);
+}
+
+.sms-chat:hover{
+    background-color: rgba(159, 190, 190, 0.584);
+}
+
+.phone li {
+    margin-bottom: 15px;
+}
+
+.email {
+    background-color: rgba(183, 228, 228, 0.584);
+    width: 45%;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.email-bspb {
+    margin-top: 30px;
+}
+
+.email-txt {
+    margin-top: 20px;
+}
+
+.sms-bank {
+    width: 45%;
+    background-color: rgba(183, 228, 228, 0.584);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.sms-chat {
+    width: 45%;
+    background-color: rgba(183, 228, 228, 0.584);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.contact a {
+    color: rgba(0, 86, 245, 0.861);
+    text-decoration: underline;
+}
