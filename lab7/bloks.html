@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блоки</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png"> 
+    <script>
+        function addNewBlock() {
+            let newBlock = document.createElement('div');
+            newBlock.style.backgroundColor = 'lightgreen';
+            newBlock.style.height = '40px';
+            newBlock.style.width = '100px';
+            newBlock.style.marginTop = '20px';
+            newBlock.style.border = '2px solid white';
+            document.querySelector('main').appendChild(newBlock);
+        }
+        function addNewBloks() {
+            let main = document.querySelector('main');
+            let chis = parseFloat(document.getElementById('chis').value) || 0;
+            for(let i=0; i<chis; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'khaki';
+                newBlock.style.height = '40px';
+                newBlock.style.marginTop = '20px';
+                newBlock.style.border = '2px solid white';
+                newBlock.style.width = ((i*20)+100)+'px';
+                newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2 * i ** 2}`;
+                main.appendChild(newBlock);
+            }
+        }
+        function add20_50() {
+            let main = document.querySelector('main');
+            for(let i = 20; i<=50; i+=2.5) {
+                let newBlock = document.createElement('div');
+                newBlock.style.width = '40px';
+                newBlock.style.border = '1px solid';
+                newBlock.style.backgroundColor = 'lightblue';
+                newBlock.style.margin = '20px';
+                newBlock.innerHTML = `${i}`;
+                main.appendChild(newBlock);
+            }
+        }
+         function add10_80() {
+            let main = document.querySelector('main');
+            for(let i = 10; i>=-80; i-=3) {
+                let newBlock = document.createElement('div');
+                newBlock.style.width = '40px';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '1px solid';
+                newBlock.style.margin = '20px';
+                newBlock.style.borderRadius = '30px';
+                newBlock.style.textAlign = 'center';
+                newBlock.style.backgroundColor = 'plum';
+                newBlock.style.display = 'inline-block';
+                newBlock.innerHTML = `${i}`;
+                main.appendChild(newBlock);
+            }
+        }
+        function add1_10() {
+            let main = document.querySelector('main');
+            for(let i=0; i<10; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'lightgreen';
+                newBlock.style.height = '40px';
+                newBlock.style.width = '400px';
+                newBlock.style.margin = '40px';
+                newBlock.style.border = '2px solid white';
+                newBlock.style.opacity = ((i*9)+10)+'%';
+                newBlock.innerText = (i+1);
+                main.appendChild(newBlock);
+                newBlock.innerHTML = `Блок № ${i+1}`;
+            }
+        }
+        function addgre() {
+            let main = document.querySelector('main');
+            let gr = parseFloat(document.getElementById('gr').value) || 0;
+            for(let i = gr; i>0; i-=1) {
+                let newBlock = document.createElement('div');
+                newBlock.style.width = '40px';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '1px solid';
+                newBlock.style.margin = '20px';
+                newBlock.style.borderRadius = '30px';
+                newBlock.style.textAlign = 'center';
+                newBlock.style.display = 'inline-block';
+                newBlock.innerHTML = `${i}`;
+                if (i%2==0) {
+                    newBlock.style.backgroundColor = "lightgreen";
+                }
+                else{
+                    newBlock.style.backgroundColor = "rgb(209, 88, 58)";
+                }
+                    main.appendChild(newBlock);
+            }
+        }
+    </script>
+    <style>
+        button {
+            border-radius: 7px;
+            padding: 7px;
+            font-size: 14px;
+            border: 1px solid;
+        }
+        input {
+            border-radius: 7px;
+            padding: 7px;
+            font-size: 14px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <header style= "padding:15px;">
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <h1>Лабораторная работа 7</h1>
+
+    <main>
+        <button onclick="addNewBlock()">Добавить блок</button>
+        <button onclick="addNewBloks()">Добавить блоки</button>
+        <input type="number" id="chis" placeholder="Введите число блоков">
+        <button onclick="add20_50()">20=>50</button>
+        <button onclick="add10_80()">10=>-80</button>
+        <button onclick="add1_10()">Полупрозрачные блоки</button>
+        <button onclick="addgre()">Цветные круги</button>
+        <input type="number" id="gr" placeholder="Введите число кругов"><br>
+    </main>
+
+    <footer>
+        &copy; Бугаева Наталья, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
