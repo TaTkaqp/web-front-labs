@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <script>
+        function getWeatherForecast() {
+            const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const temperatures = data.hourly.temperature_2m;
+                    const times = data.hourly.time;
+                    const weatherInfo = document.getElementById('weatherInfo');
+                    const today = new Date().toISOString().split('T')[0];
+                    let tempAt8 = '', tempAt12 = '', tempAt20 = ''; 
+                    times.forEach((time, index) => {
+                        const date = time.split('T')[0];
+                        const hour = time.split('T')[1].split(':')[0];
+                        if (date === today) {
+                            if (hour === '08') {
+                                tempAt8 = temperatures[index];
+                            } else if (hour === '12') {
+                                tempAt12 = temperatures[index];
+                            } else if (hour === '20') {
+                                tempAt20 = temperatures[index];
+                            }
+                        }
+                    });
+                    weatherInfo.innerHTML = `
+                        <p><b>Погода в Новосибирске сегодня</b></p>
+                        <p>Погода в 8 часов утра: ${tempAt8} °C</p>
+                        <p>Погода в 12 часов дня: ${tempAt12} °C</p>
+                        <p>Погода в 8 часов вечера: ${tempAt20} °C</p>`;
+                })
+                .catch(error => {
+                    console.error('Ошибка при получении данных о погоде:', error);
+                    document.getElementById('weatherInfo').innerText = 'Ошибка при получении данных.';
+                });
+        }
+    </script>
+    <style>
+        button {
+            border-radius: 7px;
+            padding: 7px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header style= "padding:15px;">
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    
+    <main>
+        <button onclick="getWeatherForecast()">Показать погоду</button>
+        <div id="weatherInfo"></div>
+    </main>
+
+    <footer>
+        &copy; Бугаева Наталья, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
