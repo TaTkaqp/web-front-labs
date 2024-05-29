@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс евро</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const euro = data.Valute.EUR;
+                    const currentRate = euro.Value;
+                    const previousRate = euro.Previous;
+                    const change = currentRate - previousRate;
+                    const changeText = change > 0 ? `поднялся на ${change.toFixed(4)}` : `опустился на ${(-change).toFixed(4)}`;
+
+                    const info = document.getElementById('exchangeRateInfo');
+                    info.innerHTML = `
+                        <p>Курс евро:${currentRate.toFixed(2)} RUB</p>
+                        <p>Дата запроса: ${data.Date}</p>
+                        <p>Курс за предыдущую дату: ${previousRate.toFixed(2)} RUB</p>
+                        <p>Курс евро ${change >= 0 ? 'поднялся' : 'опустился'}: ${Math.abs(change).toFixed(4)} RUB</p>
+                        <a href="https://www.cbr-xml-daily.ru/">Ссылка на источник данных</a>
+                    `;
+                });
+        }   
+    </script>
+    <style>
+        button {
+            border-radius: 7px;
+            padding: 7px;
+            font-size: 14px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <header style= "padding:15px;">
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <h1>Лабораторная работа 7</h1>
+
+    <main>
+        <button onclick="getEuroExchangeRate()">Получить курс евро</button>
+        <div id="exchangeRateInfo"></div>
+    </main>
+
+
+    <footer>
+        &copy; Бугаева Наталья, ФБИ-21, 2 курс, 2024
+    </footer>
+
+</body>
+</html>
