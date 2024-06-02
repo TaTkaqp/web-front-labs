@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <script src="days.js"></script>
+</head>
+<body onload="showDate()">
+    <header style= "padding:15px;">
+        НГТУ, ФБ, Лабораторная работа 8
+    </header>
+    <main>
+        <div>
+            <label>Дата рождения: <input type="date"></label>
+        </div>
+        <div>
+            <button onclick="showDaysCount()">Показать число дней</button>
+        </div>
+        <div id="output">"Количество дней с дня рождения :"</div>
+        <div>
+            <button onclick="Clear()">Стереть</button>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Бугаева Наталья, ФБИ-21, 2 курс, 2024
+    </footer>
+
+</body>
+
+</html>
