@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дата</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href=".../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <script src="lab8.js"></script>
+    <style>
+        #current-date2, #current-date3, #current-date4, #current-date5, #current-date6{
+            margin-top: 10px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: darkblue;
+            font-size: 20px;
+        }
+        #current-date{
+            margin-top: 10px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: darkblue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body onload="showDate()">
+    <header style= "padding:15px;">
+        НГТУ, ФБ, Лабораторная работа 8
+    </header>
+
+    <div id="current-date"></div>
+        <div id="current-date2"></div>
+        <div id="current-date3"></div>
+        <div id="current-date4"></div>
+        <div id="current-date5"></div>
+        <div id="current-date6"></div>
+
+        <div style="border: 1px solid black; border-radius: 10px; width: 400px; padding: 20px; margin-top: 30px; color: rgb(129, 133, 117); background-color: bisque; font-family: monospace;
+        font-size: 20px;">
+            <div id="outputYear"></div>
+            <div id="outputMonth"></div>
+            <div id="outputDay"></div>
+            <div id="outputWeak"></div>
+        </div>
+        <div style="border: 1px solid black; border-radius: 10px; width: 400px; padding: 20px; margin-top: 30px; color: rgb(129, 133, 117); background-color: bisque; font-family: monospace;
+        font-size: 20px;">
+        <input type="number" id="day1" placeholder="Введите день">
+        <input type="number" id="year1"placeholder="Введите месяц">
+        <input type="number" id="month1"placeholder="Введите год">
+        <button onclick="showWeak()">День недели</button>
+        <div id="outputweak2"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Бугаева Наталья, ФБИ-21, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
