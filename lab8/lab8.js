@@ -11,4 +11,4 @@ function showDate(){
     out3.innerHTML =  "English: "+today.toLocaleString("en");
     out4.innerHTML =  "Spanish: "+today.toLocaleString("es");
     out5.innerHTML =  "French: "+today.toLocaleString("fr");
-    out6.innerHTML =  "Indonesian: "+today.toLocaleString("id");
+    out6.innerHTML =  "Indonesian: "+today.toLocaleString("id");}
